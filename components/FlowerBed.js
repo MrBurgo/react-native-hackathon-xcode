@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native';
 import Flower from './Flower'
-
-const flowerImages = [
-  'apple_tree_flower.jpg', 'gerbera.jpg', 'lilac.jpeg', 'pansy.jpg',
-  'white_flower.png', 'daffadil.jpeg', 'orchid.jpeg', 'red_rose.jpg',
-  'white_daisy.png', 'yellow_rose.jpeg']
+import flowerImages from './Images'
 
 class FlowerBed extends Component {
   constructor(props) {
@@ -19,7 +15,8 @@ class FlowerBed extends Component {
     })
   }
   pickFlower() {
-    return flowerImages[Math.floor(Math.random() * flowerImages.length)]
+    const keys = Object.keys(flowerImages)
+    return keys[Math.floor(Math.random() * keys.length)]
   }
   randomizeFlowers(total) {
     const flowerArray = []
@@ -30,16 +27,24 @@ class FlowerBed extends Component {
   }
   renderFlower(flower, index) {
     return (
-      <Flower key={ index } imageFile={ flower } />
+      <Flower key={ index } imageKey={ flower } />
     )
   }
   render() {
     return (
-      <View >
+      <View style={styles.container}>
         { this.state.flowers.map(this.renderFlower) }
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    backgroundColor: '#F5FCFF',
+  }
+})
 
 export default FlowerBed

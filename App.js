@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import FlowerBed from './components/FlowerBed'
 import ClearButton from './components/ClearButton'
 import FlowerBed from './components/FlowerBed'
 
