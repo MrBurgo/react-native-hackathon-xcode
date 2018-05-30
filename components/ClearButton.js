@@ -5,7 +5,7 @@ export default class ClearButton extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button}>
+        <TouchableHighlight style={styles.button} onPress={this.props.increment}>
           <Text style={styles.buttonText}>Clear</Text>
         </TouchableHighlight>
       </View>
