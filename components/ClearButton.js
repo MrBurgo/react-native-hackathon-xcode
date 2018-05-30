@@ -25,16 +25,17 @@ const styles = {
     marginRight: 40,
     marginLeft: 40,
     marginTop: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
     backgroundColor: '#00aff0',
     borderRadius: 7,
-    width: 100
+    width: 100,
+    paddingTop: 10,
+    paddingBottom: 10
   },
   buttonText: {
     color: '#ffffff',
     textAlign: 'center',
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    lineHeight: 20
   }
 }
