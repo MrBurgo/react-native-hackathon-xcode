@@ -11,19 +11,19 @@ class FlowerBed extends Component {
   componentWillMount() {
     this.setState({
       ...this.state,
-      flowers: this.randomizeFlowers()
+      flowers: this.randomizeFlowers(10)
     })
   }
   pickFlower() {
-    return flowerImages[Math.floor(Math.random() * flowerImages.length)]
+    const keys = Object.keys(flowerImages)
+    return keys[Math.floor(Math.random() * keys.length)]
   }
   randomizeFlowers(total) {
-    // const flowerArray = []
-    // for (let i = 0; i < total; i++) {
-    //   flowerArray.push(this.pickFlower())
-    // }
-    // return flowerArray
-    return Object.keys(flowerImages)
+    const flowerArray = []
+    for (let i = 0; i < total; i++) {
+      flowerArray.push(this.pickFlower())
+    }
+    return flowerArray
   }
   renderFlower(flower, index) {
     return (
@@ -32,11 +32,19 @@ class FlowerBed extends Component {
   }
   render() {
     return (
-      <View >
+      <View style={styles.container}>
         { this.state.flowers.map(this.renderFlower) }
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    backgroundColor: '#F5FCFF',
+  }
+})
 
 export default FlowerBed

@@ -34,14 +34,14 @@ export default class Flower extends Component {
 const styles = StyleSheet.create({
   show: {
     backgroundColor: "transparent",
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     opacity: 1.0
   },
   hide: {
     backgroundColor: "transparent",
-    height: 60,
-    width: 60,
+    height: 80,
+    width: 80,
     opacity: 0
   }
 });
