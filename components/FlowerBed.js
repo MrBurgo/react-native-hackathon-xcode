@@ -14,6 +14,9 @@ class FlowerBed extends Component {
       flowers: this.randomizeFlowers(10)
     })
   }
+  componentWillReceiveProps(newProps) {
+    this.componentWillMount()
+  }
   pickFlower() {
     const keys = Object.keys(flowerImages)
     return keys[Math.floor(Math.random() * keys.length)]

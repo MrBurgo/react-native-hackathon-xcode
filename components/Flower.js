@@ -7,16 +7,20 @@ export default class Flower extends Component {
     super(props)
     this.state = { show: false }
   }
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      ...this.state,
+      show: false
+    })
+  }
   onClick = (event) => {
     event.preventDefault()
-    console.log('onClick')
     this.setState({
       ...this.state,
       show: !this.state.show
     })
   }
   render() {
-    console.log(this.props.imageKey)
     return (
       <View>
         <TouchableHighlight onPress={this.onClick}>

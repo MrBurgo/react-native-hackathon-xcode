@@ -13,24 +13,22 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0
+      hideAll: true
     }
   }
 
-  increment = () => {
-    let count = this.state.count
-    count++
+  clearFlowers = () => {
     this.setState({
-      count
+      ...this.state,
+      hideAll: true
     })
-    console.log(this.state.count)
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <FlowerBed />
-        <ClearButton increment={this.increment} />
+        <FlowerBed hideAll={this.state.hideAll}/>
+        <ClearButton clearFlowers={this.clearFlowers} />
       </View>
     );
   }
