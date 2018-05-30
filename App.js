@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native';
+import FlowerBed from './components/FlowerBed'
 import ClearButton from './components/ClearButton'
 
 type Props = {};
@@ -28,6 +29,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <FlowerBed />
         <ClearButton increment={this.increment} />
       </View>
     );
