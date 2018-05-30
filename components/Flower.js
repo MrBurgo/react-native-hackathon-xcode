@@ -22,8 +22,8 @@ export default class Flower extends Component {
         <TouchableHighlight onPress={this.onClick}>
           {
             this.state.show ?
-            <Image style={styles.show} source={flowerImages[this.props.imageKey]}/> :
-            <Image style={styles.hide} source={flowerImages[this.props.imageKey]}/>
+            <Image style={[styles.show, styles.block]} source={flowerImages[this.props.imageKey]}/> :
+            <Image style={[styles.hide, styles.block]} source={flowerImages[this.props.imageKey]}/>
           }
         </TouchableHighlight>
       </View>
