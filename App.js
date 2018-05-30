@@ -27,6 +27,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.instructions}>Touch the screen and see the flowers bloom</Text>
         <FlowerBed hideAll={this.state.hideAll}/>
         <ClearButton clearFlowers={this.clearFlowers} />
       </View>
@@ -47,8 +48,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   instructions: {
+    fontSize: 20,
     textAlign: 'center',
     color: '#333333',
+    margin: 30,
     marginBottom: 5,
   },
 });
