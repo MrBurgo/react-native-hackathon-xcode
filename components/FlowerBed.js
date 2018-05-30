@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native'
 import Flower from './Flower'
 import flowerImages from './Images'
 
-class FlowerBed extends Component {
+export default class FlowerBed extends Component {
   constructor(props) {
     super(props)
-    this.state = { flowers: [] }
+    this.state = {
+      flowers: []
+    }
   }
   componentWillMount() {
     this.setState({
@@ -25,15 +27,32 @@ class FlowerBed extends Component {
     }
     return flowerArray
   }
-  renderFlower(flower, index) {
-    return (
-      <Flower key={ index } imageKey={ flower } />
-    )
-  }
+  // randomLeft() {
+  //   let num
+  //   for (let i = 0; i < this.state.flowers.length; i++) {
+  //     num = Math.floor(((Math.random() * 2) - 1) * 100)
+  //     if (!randomArr.includes(num - 5) && !randomArr.includes(num + 5)) {
+  //       randomArr[i] = num
+  //     } else {
+  //       if (num < (100 - 6)) {
+  //         randomArr[i] = num + 5
+  //       } else {
+  //         randomArr[i] = num - 5
+  //       }
+  //     }
+  //   }
+  //   return randomArr
+  // }
   render() {
     return (
       <View style={styles.container}>
-        { this.state.flowers.map(this.renderFlower) }
+        {
+          this.state.flowers.map((flower, index) => {
+            return (
+              <Flower key={ index } imageKey={ flower } index={ index } flowers={ this.state.flowers } />
+            )
+          })
+        }
       </View>
     )
   }
@@ -46,5 +65,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   }
 })
-
-export default FlowerBed

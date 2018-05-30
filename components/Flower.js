@@ -7,6 +7,16 @@ export default class Flower extends Component {
     super(props)
     this.state = { show: false }
   }
+  randomLeft(index) {
+    let num = Math.floor(((Math.random() * 2) - 1.5) * 200)
+    console.log(num)
+    return num
+  }
+  randomTop(index) {
+    let num = Math.floor(Math.random() * 650)
+    console.log(num)
+    return num
+  }
   onClick = (event) => {
     event.preventDefault()
     console.log('onClick')
@@ -15,15 +25,15 @@ export default class Flower extends Component {
       show: !this.state.show
     })
   }
+
   render() {
-    console.log(this.props.imageKey)
     return (
       <View>
         <TouchableHighlight onPress={this.onClick}>
           {
-            this.state.show ?
-            <Image style={[styles.show, styles.block]} source={flowerImages[this.props.imageKey]}/> :
-            <Image style={[styles.hide, styles.block]} source={flowerImages[this.props.imageKey]}/>
+            !this.state.show ?
+            <Image style={[styles.show, { position: 'absolute', left: this.randomLeft(this.props.index), top: this.randomTop(this.props.index) }]} source={flowerImages[this.props.imageKey]}/> :
+            <Image style={[styles.hide, { position: 'absolute', left: this.randomLeft(this.props.index), top: this.randomTop(this.props.index) }]} source={flowerImages[this.props.imageKey]}/>
           }
         </TouchableHighlight>
       </View>
@@ -31,17 +41,17 @@ export default class Flower extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
   show: {
     backgroundColor: "transparent",
-    height: 80,
-    width: 80,
+    height: 150,
+    width: 150,
     opacity: 1.0
   },
   hide: {
     backgroundColor: "transparent",
-    height: 80,
-    width: 80,
+    height: 150,
+    width: 150,
     opacity: 0
   }
 });

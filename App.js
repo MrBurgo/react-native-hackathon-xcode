@@ -29,7 +29,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <FlowerBed />
+        <Text style={styles.instructions}>Touch the screen to see the flowers bloom</Text>
+        <FlowerBed hideAll={this.state.hideAll}/>
         <ClearButton increment={this.increment} />
       </View>
     );
