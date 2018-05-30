@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, TouchableHighlight } from 'react-native';
+import flowerImages from './Images'
 
 export default class Flower extends Component {
   constructor(props) {
@@ -8,19 +9,23 @@ export default class Flower extends Component {
   }
   onClick = (event) => {
     event.preventDefault()
+    console.log('onClick')
     this.setState({
       ...this.state,
       show: !this.state.show
     })
   }
   render() {
+    console.log(this.props.imageKey)
     return (
       <View>
-        {
-          !this.state.show ?
-          <Image style={styles.show} source={{uri: `/assets/${this.props.imageFile}`}}/> :
-          <Image style={styles.hide} source={{uri: `/assets/${this.props.imageFile}`}}/>
-        }
+        <TouchableHighlight onPress={this.onClick}>
+          {
+            this.state.show ?
+            <Image style={styles.show} source={flowerImages[this.props.imageKey]}/> :
+            <Image style={styles.hide} source={flowerImages[this.props.imageKey]}/>
+          }
+        </TouchableHighlight>
       </View>
     )
   }
