@@ -7,15 +7,13 @@ import {
 } from 'react-native';
 import FlowerBed from './components/FlowerBed'
 import ClearButton from './components/ClearButton'
-import FlowerBed from './components/FlowerBed'
 
 type Props = {};
 export default class App extends Component<Props> {
   constructor(props) {
     super(props)
     this.state = {
-      count: 0,
-      buttonShow: false
+      count: 0
     }
   }
 
@@ -23,7 +21,6 @@ export default class App extends Component<Props> {
     let count = this.state.count
     count++
     this.setState({
-      ...this.state,
       count
     })
     console.log(this.state.count)
@@ -32,7 +29,6 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <FlowerBed />
         <ClearButton increment={this.increment} />
       </View>
     );
